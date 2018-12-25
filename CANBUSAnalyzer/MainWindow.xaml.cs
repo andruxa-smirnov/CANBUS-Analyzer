@@ -49,14 +49,11 @@ namespace CANBUS
     private bool isCSV;
     private Thread thread;
 
-    BindableTwoDArray<char> MyBindableTwoDArray { get; set; }
-
     SortedDictionary<int, char> batterySerial = new SortedDictionary<int, char>();
 
     public MainWindow()
     {
       InitializeComponent();
-      MyBindableTwoDArray = new BindableTwoDArray<char>(8, 8);
       PathList.ItemsSource = runningTasks;
       parser = new Parser();
       HitsDataGrid.ItemsSource = parser.items;
@@ -429,12 +426,6 @@ namespace CANBUS
           index++;
         }
       }
-      //else
-      //  BitBox.Text = bits;
-      /*Dispatcher.Invoke(() => {
-        for (int i = 0; i < 8; i++)
-          MyBindableTwoDArray[i, 0] = rawbits[i];
-      });*/
     }
 
     private void updateTitle(object state)
